@@ -42,25 +42,6 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
     const selections = ["ROCK", "PAPER", "SCISSORS"];
-    for (let i = 0; i < 5; i++) {
-        playerSelection = prompt()
-        computerSelection = computerPlay();
-
-        // Verify user's input
-        while (!(selections.includes(playerSelection.toUpperCase()))) {
-            playerSelection = prompt();
-        }
-
-        console.log(`User plays ${playerSelection}, Computer plays ${computerSelection}`);
-        result = (gameRound(playerSelection, computerSelection));
-
-        if (result) {
-            playerWins += 1;
-        } else if (result === false) {
-            computerWins += 1;
-        } 
-        console.log(`Current Score - Player: ${playerWins}, Computer: ${computerWins}`);
-    }
 
     if (playerWins > computerWins) {
         return "User Wins!"
