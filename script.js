@@ -1,5 +1,14 @@
 "use strict"
 
+// Add an event listener to the selection buttons
+const rockButton = document.querySelector(".rock-button");
+const paperButton = document.querySelector(".paper-button");
+const scissorsButton = document.querySelector(".scissors-button");
+
+rockButton.addEventListener("click", e => console.log(e));
+paperButton.addEventListener("click", e => console.log(e));
+scissorsButton.addEventListener("click", e => console.log(e));
+
 function computerPlay() {
     // generate random number between 0-2 inclusive
     let num = Math.floor(Math.random() * 3);
@@ -51,5 +60,3 @@ function game() {
         return "No one wins! Play again?"
     }
 }
-
-console.log(game());
