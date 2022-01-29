@@ -1,0 +1,91 @@
+body * {
+    border: 1px solid red;
+}
+
+/* Game Container */
+.flex-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container {
+    display: grid;
+}
+
+/* Container for Player, Game, Computer Blocks */
+
+.grid-container__play {
+    display: flex;
+}
+
+.player, .game, .computer {
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Player */
+.player {
+    display: flex;
+    flex-direction: column;
+}
+
+.player__score{
+    width: 50%;
+    height: 20%;
+}
+
+.player__choice {
+    width: 50%;
+    height: 20%;
+}
+
+/* Game */
+.game__round {
+    width: 50%;
+    height: 20%;
+}
+
+.game__result {
+    width: 50%;
+    height: 20%;
+}
+
+
+/* Computer */
+.computer__score {
+    width: 50%;
+    height: 20%;
+}
+
+.computer__choice {
+    width: 50%;
+    height: 20%;
+}
+
+/* Game Choices */
+.grid-container__choices {
+    display: flex;
+}
+
+.rock {
+    width: 100px;
+    height: 100px;
+}
+
+.paper {
+    width: 100px;
+    height: 100px;
+}
+
+.scissors {
+    width: 100px;
+    height: 100px;
+}
+
+
+
