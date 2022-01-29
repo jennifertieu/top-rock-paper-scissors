@@ -1,10 +1,15 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 body * {
     border: 1px solid red;
 }
 
 /* Game Container */
 .flex-container {
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,79 +18,21 @@ body * {
 
 .grid-container {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em;
 }
 
 /* Container for Player, Game, Computer Blocks */
 
-.grid-container__play {
-    display: flex;
-}
-
 .player, .game, .computer {
-    width: 300px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-columns: minmax(200px, auto);
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em;
 }
 
-/* Player */
-.player {
-    display: flex;
-    flex-direction: column;
+.player__score, .computer__score, .game__round {
+    align-self: start;
 }
-
-.player__score{
-    width: 50%;
-    height: 20%;
-}
-
-.player__choice {
-    width: 50%;
-    height: 20%;
-}
-
-/* Game */
-.game__round {
-    width: 50%;
-    height: 20%;
-}
-
-.game__result {
-    width: 50%;
-    height: 20%;
-}
-
-
-/* Computer */
-.computer__score {
-    width: 50%;
-    height: 20%;
-}
-
-.computer__choice {
-    width: 50%;
-    height: 20%;
-}
-
-/* Game Choices */
-.grid-container__choices {
-    display: flex;
-}
-
-.rock {
-    width: 100px;
-    height: 100px;
-}
-
-.paper {
-    width: 100px;
-    height: 100px;
-}
-
-.scissors {
-    width: 100px;
-    height: 100px;
-}
-
-
 
