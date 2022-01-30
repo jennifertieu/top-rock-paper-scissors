@@ -3,7 +3,7 @@
 // Add an event listener to the selection buttons
 const rockButton = document.querySelector(".rock__button");
 const paperButton = document.querySelector(".paper__button");
-const scissorsButton = document.querySelector(".scissors__git button");
+const scissorsButton = document.querySelector(".scissors__button");
 
 rockButton.addEventListener("click", e => console.log(e));
 paperButton.addEventListener("click", e => console.log(e));
