@@ -5,9 +5,23 @@ const rockButton = document.querySelector(".rock__button");
 const paperButton = document.querySelector(".paper__button");
 const scissorsButton = document.querySelector(".scissors__button");
 
+// When user selects button, execute round
 rockButton.addEventListener("click", e => console.log(e));
 paperButton.addEventListener("click", e => console.log(e));
 scissorsButton.addEventListener("click", e => console.log(e));
+
+// Display user choice and computer choice on UI
+
+// Keep playing game until five rounds are over
+
+// Track round count
+
+// Track user and computer score
+
+// Endgame when someone wins, prompt user to play again
+
+// Make button for user to play again? Reset game, score, round
+
 
 function computerPlay() {
     // generate random number between 0-2 inclusive
