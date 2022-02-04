@@ -6,21 +6,61 @@ const paperButton = document.querySelector(".paper__button");
 const scissorsButton = document.querySelector(".scissors__button");
 
 // When user selects button, execute round
-rockButton.addEventListener("click", e => console.log(e));
-paperButton.addEventListener("click", e => console.log(e));
-scissorsButton.addEventListener("click", e => console.log(e));
+rockButton.addEventListener("click", game);
+paperButton.addEventListener("click", game);
+scissorsButton.addEventListener("click", game);
 
-// Display user choice and computer choice on UI
 
-// Keep playing game until five rounds are over
 
-// Track round count
+function game(event) {
+    let playerSelection, computerSelection, result;
+    let playerWins = 0;
+    let computerWins = 0;
 
-// Track user and computer score
+    playerSelection = event.target.value.toUpperCase();
+    computerSelection = computerPlay();
+    console.log(computerSelection, playerSelection);
 
-// Endgame when someone wins, prompt user to play again
+    // Display user choice and computer choice on UI
+    document.querySelector(".player__choice").textContent = playerSelection;
+    document.querySelector(".computer__choice").textContent = computerSelection;
 
-// Make button for user to play again? Reset game, score, round
+    // Display results
+    let roundResult = gameRound(playerSelection, computerSelection);
+    if (roundResult === null){
+        document.querySelector(".game__result").textContent = "Tie";
+    }
+    else if (roundResult){
+        // player wins, update player score
+        playerWins += 1;
+        document.querySelector(".game__result").textContent = "Player Wins!";
+        document.querySelector(".player__score").textContent = playerWins;
+    } else {
+        // computer wins, update computer score
+        computerWins += 1;
+        document.querySelector(".game__result").textContent = "Computer Wins!";
+        document.querySelector(".computer__score").textContent = computerWins;
+    }
+
+    // Keep playing game until five rounds are over
+
+    // Track round count
+
+    // Track user and computer score
+
+    // Endgame when someone wins, prompt user to play again
+
+    // Make button for user to play again? Reset game, score, round
+
+    // if (playerWins > computerWins) {
+    //     return "User Wins!"
+    // } else if (computerWins > playerWins) {
+    //     return "Computer Wins! You Lose :(."
+    // } else {
+    //     return "No one wins! Play again?"
+    // }
+} 
+
 
 
 function computerPlay() {
@@ -60,17 +100,3 @@ function gameRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerSelection, computerSelection, result;
-    let playerWins = 0;
-    let computerWins = 0;
-    const selections = ["ROCK", "PAPER", "SCISSORS"];
-
-    if (playerWins > computerWins) {
-        return "User Wins!"
-    } else if (computerWins > playerWins) {
-        return "Computer Wins! You Lose :(."
-    } else {
-        return "No one wins! Play again?"
-    }
-}
