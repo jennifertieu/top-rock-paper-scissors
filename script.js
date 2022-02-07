@@ -1,5 +1,13 @@
 "use strict"
 
+let roundNumber = 0;
+let playerWins = 0;
+let computerWins = 0;
+
+document.querySelector(".player__score").textContent = playerWins;
+document.querySelector(".computer__score").textContent = computerWins;
+document.querySelector(".game__round").textContent = roundNumber;
+
 // Add an event listener to the selection buttons
 const rockButton = document.querySelector(".rock__button");
 const paperButton = document.querySelector(".paper__button");
@@ -13,13 +21,17 @@ scissorsButton.addEventListener("click", game);
 
 
 function game(event) {
-    let playerSelection, computerSelection, result;
-    let playerWins = 0;
-    let computerWins = 0;
+    let playerSelection, computerSelection;
 
+    roundNumber++;
+    // Game over if five rounds are already played
+    if (roundNumber === 6){
+        gameOver(playerWins, computerWins);
+    }
+
+    document.querySelector(".game__round").textContent = roundNumber;
     playerSelection = event.target.value.toUpperCase();
     computerSelection = computerPlay();
-    console.log(computerSelection, playerSelection);
 
     // Display user choice and computer choice on UI
     document.querySelector(".player__choice").textContent = playerSelection;
@@ -32,36 +44,39 @@ function game(event) {
     }
     else if (roundResult){
         // player wins, update player score
-        playerWins += 1;
+        playerWins++;
         document.querySelector(".game__result").textContent = "Player Wins!";
         document.querySelector(".player__score").textContent = playerWins;
     } else {
         // computer wins, update computer score
-        computerWins += 1;
+        computerWins++;
         document.querySelector(".game__result").textContent = "Computer Wins!";
         document.querySelector(".computer__score").textContent = computerWins;
     }
+    
+    // Game over if five rounds are already played
+    if (roundNumber === 5) {
+        gameOver(playerWins, computerWins);
+    }
 
-    // Keep playing game until five rounds are over
-
-    // Track round count
-
-    // Track user and computer score
-
-    // Endgame when someone wins, prompt user to play again
-
-    // Make button for user to play again? Reset game, score, round
-
-    // if (playerWins > computerWins) {
-    //     return "User Wins!"
-    // } else if (computerWins > playerWins) {
-    //     return "Computer Wins! You Lose :(."
-    // } else {
-    //     return "No one wins! Play again?"
-    // }
 } 
 
+function gameOver(playerWins, computerWins){
+    // Endgame when someone wins, prompt user to play again
+    let answer;
+    if (playerWins > computerWins) {
+        answer = confirm("User wins! Would you like to play again?");
+    } else if (computerWins > playerWins) {
+        answer = confirm("Computer wins! You Lose! Would you like to play again?");
+    } else {
+        answer = confirm("No one wins! Would you like to play again?");
+    }
 
+    if (answer) {
+        // reset the game state
+        document.location.reload(true);
+    }
+}
 
 function computerPlay() {
     // generate random number between 0-2 inclusive
