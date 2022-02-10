@@ -53,10 +53,10 @@ function game(event) {
         document.querySelector(".game__result").textContent = "Computer Wins!";
         document.querySelector(".computer__score").textContent = computerWins;
     }
-    
+
     // Game over if five rounds are already played
     if (roundNumber === 5) {
-        gameOver(playerWins, computerWins);
+        setTimeout(gameOver, 0, playerWins, computerWins);
     }
 
 } 
