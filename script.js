@@ -4,9 +4,9 @@ let roundNumber = 0;
 let playerWins = 0;
 let computerWins = 0;
 
-document.querySelector(".player__score").textContent = playerWins;
-document.querySelector(".computer__score").textContent = computerWins;
-document.querySelector(".game__round").textContent = roundNumber;
+document.querySelector(".player__score-number").textContent = playerWins;
+document.querySelector(".computer__score-number").textContent = computerWins;
+document.querySelector(".game__round-number").textContent = roundNumber;
 
 // Add an event listener to the selection buttons
 const rockButton = document.querySelector(".rock__button");
@@ -29,29 +29,29 @@ function game(event) {
         gameOver(playerWins, computerWins);
     }
 
-    document.querySelector(".game__round").textContent = roundNumber;
+    document.querySelector(".game__round-number").textContent = roundNumber;
     playerSelection = event.target.value.toUpperCase();
     computerSelection = computerPlay();
 
     // Display user choice and computer choice on UI
-    document.querySelector(".player__choice").textContent = playerSelection;
-    document.querySelector(".computer__choice").textContent = computerSelection;
+    document.querySelector(".player__choice-selection").textContent = playerSelection;
+    document.querySelector(".computer__choice-selection").textContent = computerSelection;
 
     // Display results
     let roundResult = gameRound(playerSelection, computerSelection);
     if (roundResult === null){
-        document.querySelector(".game__result").textContent = "Tie";
+        document.querySelector(".game__result-text").textContent = "Tie";
     }
     else if (roundResult){
         // player wins, update player score
         playerWins++;
-        document.querySelector(".game__result").textContent = "Player Wins!";
-        document.querySelector(".player__score").textContent = playerWins;
+        document.querySelector(".game__result-text").textContent = "Player Wins!";
+        document.querySelector(".player__score-number").textContent = playerWins;
     } else {
         // computer wins, update computer score
         computerWins++;
-        document.querySelector(".game__result").textContent = "Computer Wins!";
-        document.querySelector(".computer__score").textContent = computerWins;
+        document.querySelector(".game__result-text").textContent = "Computer Wins!";
+        document.querySelector(".computer__score-number").textContent = computerWins;
     }
 
     // Game over if five rounds are already played
@@ -89,29 +89,19 @@ function computerPlay() {
 function gameRound(playerSelection, computerSelection) {
     // return if the user won the round
     if (playerSelection === computerSelection) {
-        console.log("It's a tie! Nobody wins.");
         return null
     } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
-        console.log("You Lose! Paper beats Rock.");
         return false
     } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS"){
-        console.log("You Win! Rock beats Scissors.");
         return true
     } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
-        console.log("You Win! Paper beats Rock.");
         return true
     } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
-        console.log("You Lose! Scissors beats Paper.");
         return false
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
-        console.log("You Lose! Rock beats Scissors.");
         return false
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
-        console.log("You Win! Scissors beats Paper.");
         return false
-    } else {
-        console.log("Invalid Inputs.");
-        return null
     }
 }
 

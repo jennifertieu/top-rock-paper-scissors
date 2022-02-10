@@ -36,3 +36,28 @@ body * {
     align-self: start;
 }
 
+.game__round, .game__result, .player__score, .computer__score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__round-number, .player__score-number, .computer__score-number {
+    margin-left: 5px;
+}
+
+.player__choice, .computer__choice {
+    display: flex;
+    flex-direction: column; 
+}
+
+.player__choice-selection, .computer__choice-selection {
+    justify-self: center;
+    align-self: center;
+}
+
+.rock, .scissors, .paper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
