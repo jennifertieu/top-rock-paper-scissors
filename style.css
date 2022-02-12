@@ -54,6 +54,7 @@ body * {
 .player__choice-selection, .computer__choice-selection {
     justify-self: center;
     align-self: center;
+    margin-top: 4rem;
 }
 
 .rock, .scissors, .paper {
