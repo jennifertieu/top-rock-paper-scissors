@@ -1,12 +1,16 @@
 html, body {
     margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100%;
+    font-weight: 600;
 }
 
-body * {
+/* body * {
     border: 1px solid red;
-}
+} */
 
 /* Game Container */
 .flex-container {
@@ -14,24 +18,46 @@ body * {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5em;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-auto-rows: minmax(200px, auto);
+    grid-template-columns: repeat(3, 250px);
+    grid-auto-rows: minmax(250px, auto);
 }
 
 .box {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5%
 }
+
+.player__score, .game__round, .computer__score {
+    gap: 5%
+}
+
 
 .player__choice, .computer__choice {
     flex-direction: column;
 }
 
-.player__choice-title, .computer__choice-title {
-    align-self: space-between;
+.rock__button, .paper__button, .scissors__button {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+}
+
+.rock__button {
+    background-image: url("img/rock.svg");
+}
+
+.paper__button {
+    background-image: url("img/paper.svg");
+}
+
+.scissors__button {
+    background-image: url("img/scissors.svg");
 }
