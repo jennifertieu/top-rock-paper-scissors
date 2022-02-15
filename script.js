@@ -21,21 +21,41 @@ scissorsButton.addEventListener("click", game);
 
 
 function game(event) {
-    let playerSelection, computerSelection;
 
     roundNumber++;
     // Game over if five rounds are already played
     if (roundNumber === 6){
         gameOver(playerWins, computerWins);
     }
+    
+    let playerSelectionChoice = document.querySelector(".player__choice-selection")
+    let computerSelectionChoice = document.querySelector(".computer__choice-selection")
 
+    let playerSelection = event.target.value.toUpperCase();
+    let computerSelection = computerPlay();
+
+    // Remove old choices
+    if (playerSelectionChoice.firstChild) {
+        playerSelectionChoice.removeChild(playerSelectionChoice.firstChild);
+    }
+    if (computerSelectionChoice.firstChild) {
+        computerSelectionChoice.removeChild(computerSelectionChoice.firstChild);
+    }    
+
+    // Display user choice, computer choice on UI, and round number
     document.querySelector(".game__round-number").textContent = roundNumber;
-    playerSelection = event.target.value.toUpperCase();
-    computerSelection = computerPlay();
 
-    // Display user choice and computer choice on UI
-    document.querySelector(".player__choice-selection").textContent = playerSelection;
-    document.querySelector(".computer__choice-selection").textContent = computerSelection;
+    let playerImg = document.createElement("img");
+    playerImg.setAttribute("height", "100%");
+    playerImg.setAttribute("width", "100%");
+    playerImg.src = setImageSource(playerSelection)
+    playerSelectionChoice.appendChild(playerImg);
+
+    let computerImg = document.createElement("img");
+    computerImg.setAttribute("height", "100%");
+    computerImg.setAttribute("width", "100%");
+    computerImg.src = setImageSource(computerSelection)
+    computerSelectionChoice.appendChild(computerImg);
 
     // Display results
     let roundResult = gameRound(playerSelection, computerSelection);
@@ -101,7 +121,17 @@ function gameRound(playerSelection, computerSelection) {
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
         return false
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
-        return false
+        return true
     }
 }
 
+function setImageSource(selection) {
+    // return image source
+    if (selection.toUpperCase() === "ROCK"){
+        return "img/rock.svg"
+    } else if (selection.toUpperCase() === "PAPER"){
+        return "img/paper.svg"
+    } else if (selection.toUpperCase() === "SCISSORS") {
+        return "img/scissors.svg"
+    }
+}
