@@ -8,11 +8,7 @@ html, body {
     font-weight: 600;
 }
 
-/* body * {
-    border: 1px solid red;
-} */
 
-/* Game Container */
 .flex-container {
     height: 100%;
     display: flex;
